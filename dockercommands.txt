@@ -1,0 +1,157 @@
+Docker Basic Commands
+
+docker --version 
+docker -v
+docker info
+docker --help
+docker login 
+
+Images
+docker images 
+docker pull <image_name>
+docker rmi <image_id>
+
+Containers
+docker ps 
+docker run -it <image_name>:<version/tag>
+docker start <container_id>
+docker stop <container_id>
+docker rm <container_id>
+
+System Level
+docker stats
+docker system df
+docker system prune
+
+Docker Images Level Commands
+docker images --help
+docker images 
+docker images -q
+docker images -f "dangling=false"
+docker run <image_name>
+docker run --name <ImageName> -it <Image>
+docker rmi <image_ID>
+docker rmi -f <image_id>
+
+docker inspect --> gives the whole details of the image and image is the collection of stack.
+
+Docker Container level Commands
+docker ps -a
+docker run <image_name>
+docker start <container_id>
+docker stop <container_id>
+docker attach <container_id>
+
+Jenkins On Docker
+1. How to start Jenkins On Docker Container
+docker pull jenkins:latest
+docker images 
+docker run --name MyJenkins -p 8080:8080 -p 50000:50000 jenkins -v /your/Dir/name:/var/jenkins_home jenkins
+Once its up and running --> hit the localhost:8080 --> enter the password-->install the needed plugins --> enter Install --> create admin user --> done and you can start using Jenkins now.
+
+2. Start and Stop Jenkins Container
+
+3. How to set Jenkins home on Docker Volume and Host Machine.
+docker volume
+docker volume create myjenkins
+docker volume ls
+
+
+Dockerfile Basics
+What is Dockerfile --> Its the text file with the instructions to build an image
+FROM
+RUN
+CMD
+How to create a Dockerfile 
+Step1- Create a file named "dockerfile" --> touch dockerfile
+Step2- sample as mentioned-below,(Add Instructions)
+FROM ubuntu
+
+MAINTAINER DevOpsForum <devopsforum@gmail.com>
+
+RUN apt-get update
+
+CMD ["echo", "Hello from DevOpsForum...!"]
+Step3: Build dockerfile to create image
+docker build /path/to/your/dockerfile or docker build -t MyImage1:0 .
+Step4: Run the image to create a container
+docker run <Image_id created on top>
+
+How to build an Image from Dockerfile
+docker build /path/to/your/dockerfile or docker build -t MyImage1:0 .
+docker run <Image_id created on top>
+
+https://github.com/wsargent/docker-cheat-sheet
+
+Docker Compose
+What|Why Docker Compose 
+File to define & run multi-container docker applications
+Base coding language is YAML(docker-compose.yml)
+Can start all services with a single command: docker-compose up
+can stop all services with a single command: docker-compose down
+can scale up selected services whenever required
+
+How to install Docker Compose
+Step1- docker-compose -v --> to check the installation 
+Step2- create Docker Compose file at any desied location on your local machine. --> name it as --> docker-compose.yml
+sample compose file,
+
+Version '3'
+services:
+  
+  web:
+    image: nginx
+	ports:
+	- 9090:80
+  database:
+    image: redis
+Step3 - Check the validatity of the file by command --> 
+	docker-compose config
+Step4 - Run docker-compose.yml file by command
+	docker-compose up -d --> this will run the compose file created in the step3
+Step 5 - stop the services 
+	docker-compose down
+To sclae the container 
+	docker-compose up -d --scale database=4 
+	this command will create 4 database services which we declared in the above compose file.
+
+Docker Volumes
+1. What are volumes
+Use of Volumes
+===========
+Decoupling container from storage
+Share volume (storage/data) among different containers
+Attach volume to container
+On deleting container volume does not delete
+
+
+
+
+docker volume  //get information
+docker volume create <name>
+docker volume ls --> list the volumes 
+docker volume inspect --> to see the details of the volume
+docker volume rm --> to remove the created volumes
+docker volume prune --> to remove all the volumes
+
+Example: 
+docker pull jenkins
+docker run --name MyJenkins -v <volume_name>:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins 
+
+
+Docker SWARM
+1. What is Docker Swarm
+Its a group of machines that are running docker and joined in a cluster. Its a tool for container orchestration.
+2. Why to use it.
+3. How to create and manage Docker Swarm
+4. Create service on docker swarm
+5. Scalling services up and down.
+6. Features/Helpful tips.
+https://docs.docker.com/get-started/part4/
+https://www.youtube.com/playlist?list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK
+https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/
+docker-machine -v 
+
+Step1- Create docker machines which has manager and workers.
+	docker-machine create --driver hyperv <Name_manager>
+	

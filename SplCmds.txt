@@ -1,0 +1,102 @@
+ssh -i "xyz.pem" <Public DNS IP>
+
+
+MASTER: 
+Public : 18.205.40.160
+Private : 172.31.19.7
+
+Node1
+Public : 34.195.9.247
+Private : 172.31.30.39
+
+Node2
+Public : 34.234.18.27
+Private : 172.31.18.50
+
+Node3
+Public : 35.173.9.220
+Private : 172.31.28.196
+
+To install epel on the instance use this command
+wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+
+once its installed try installing the epel repo using 
+sudo rpm -ivh epel-release-7-11.noarch.rpm
+
+later update the yum on the machine and node machines as well using 
+sudo yum update
+
+now using the below command install the ansible on the machines
+sudo yum install ansible -y
+
+
+once the installation is done please check whether its installed proper or not using the below command,
+ansible --version
+
+check in the ansible.cfg for the details of the modules and paths
+
+to enable logs of ansible and to check what happens at the backend, just enable the logs in the ansible.cfg file by using the command,
+sudo vi ansible.cfg <and search for /logging, then enable logs by removing the # i.e. log_path) before doing this you need to set the dir to ansible folder using the command 
+cd /etc/ansible/
+and then edit for the log enabling 
+
+we need to change the permissions for the log file to make it writable. use the below mentioned command to change the permissions.
+sudo touch /var/log/ansible.log (create the log file first) and then change the permissions.
+sudo chmod 777 /var/log/ansible.log
+
+Lets discuss about the configuration of the ansible by going through the ansible.cfg file located in /etc/ansible/ 
+
+always take a backup of the ansible.cfg file using the command
+sudo cp ansible.cfg ansible.cfg.original
+
+Phyton has got the dependency for ansible and this we can see the python files using the mentioned command,
+sudo yum list installed|grep -i python
+
+check the whether python is installed on the machines and nodes 
+use python as command and it will give the version of installed python and to come out of the python use quit()
+
+
+to check the file paths use the mentioned command,
+set|grep -i <filename> --- example set|grep -i ansible --- results PWD=/etc/ansible
+
+to change the file path which was set for ansible.cfg just use the command,
+export ANSIBLE_CONFIG=<set the path you need to pick> 
+
+check the changed path of ansible config file to new location, 
+set|grep -i ansible this will give the overriden file path.
+
+to check the defined hosts in the /etc/ansible/hosts file use the command,
+ansible all --list-hosts
+
+Just edit the hosts file by adding the code like
+[local]
+localhost
+[apacheweb]
+IP-address
+[appserver]
+IP-address
+
+as shown below
+
+[local]
+localhost
+[apacheweb]
+172.31.30.39
+172.31.18.50
+[appserver]
+172.31.28.196
+
+when you try ping of the hosts it will give the mentioned results
+
+[test@ip-172-31-19-7 ansible]$ ansible apacheweb -m ping
+172.31.18.50 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+172.31.30.39 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+to stop the node/machine use the command,
+stay in the machine you need to stop and type -----> sudo systemctl stop sshd and to check the status of this machine use ----> sudo service sshd status

@@ -1,0 +1,76 @@
+https://www.cloudbees.com/blog/audit-trail-dashboard-cloudbees-jenkins-analytics
+
+https://perkinelmer.wd1.myworkdayjobs.com/en-US/External/login
+
+https://www.linux.org/threads/file-permissions-chmod.4124/
+
+
+docker-machine create default --virtualbox-no-vtx-check
+
+
+
+
+https://aws.amazon.com/architecture/
+
+https://aws.amazon.com/getting-started/projects/
+
+https://aws.amazon.com/getting-started/projects/migrate-git-repository/?trk=gs_card
+
+https://aws.amazon.com/getting-started/projects/migrate-oracle-to-amazon-aurora/?trk=gs_card
+
+
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-vpc
+
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+http://guides.beanstalkapp.com/version-control/branching-best-practices.html
+https://stackify.com/continuous-delivery-git-jenkins/?utm_referrer=https://www.google.com/
+https://www.atlassian.com/continuous-delivery/branch-deployments-in-continuous-delivery-pipelines
+
+https://github.com/rotati/wiki/wiki/How-we-use-master,-staging-and-stable-branch-in-Github
+
+https://services.github.com/on-demand/downloads/subversion-migration/
+
+https://dev-ops-notes.com/aws/aws-cloudformation-managing-vpc/ -- AWS Cloudformation
+
+Steps to setup the AWS environment
+1-sigup and create the budgets
+2-ssh key pair creation 
+
+https://github.com/ACloudGuru/find-close-meteorites
+
+http://try.github.io/
+https://learngitbranching.js.org/
+
+https://services.github.com/on-demand/downloads/subversion-migration/
+
+https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html
+https://jenkins.io/doc/book/pipeline/getting-started/
+https://blogs.sap.com/2015/12/15/configuring-jenkins-to-run-a-build-automatically-on-code-push/ -- pipeline sample
+https://jenkins.io/doc/book/pipeline/
+https://developer.github.com/webhooks/creating/#setting-up-a-webhook -- Webhok steps
+https://support.cloudbees.com/hc/en-us/articles/115003015711-GitHub-Webhook-Organization-Folder
+
+
+http://www.oznetnerd.com/ansible-playbook-structure/ --- Ansible
+https://serversforhackers.com/c/an-ansible-tutorial -- Ansible.
+
+
+https://nvie.com/posts/a-successful-git-branching-model/ -- GIT branching strategy
+https://feeding.cloud.geek.nz/posts/setting-up-centralied-git-repository/ -- Git server setup
+
+
+https://www.youtube.com/watch?v=_fmX31VFbL8 - JenkinsFile
+https://github.com/Zulaikha12/git-test/ -- Jenkinsfile
+https://www.youtube.com/watch?v=KZY4Rwsewro -- JenkinsFile
+https://www.youtube.com/channel/UCJa7gH6sl-YDRHYCVBGFbHw -- Jenkins
+https://github.com/DevOpsBasicSetup - Google Drive
+https://github.com/PythonAwsBoto3 -- Useful and valaxy tech
+https://www.youtube.com/user/codemynet/videos - Codemy tutorials
+
+https://www.youtube.com/channel/UCyBR6tE6at5Fw490KKEM1nA/videos -- Useful videos 
+https://www.youtube.com/channel/UCJa7gH6sl-YDRHYCVBGFbHw/videos -- Linux anotations
+https://www.youtube.com/user/samsonawane09/videos - Jenkins Videos
+https://onclick360.com/jenkins-command-line/ -- Jenkins CLI

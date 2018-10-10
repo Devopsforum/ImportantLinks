@@ -1,0 +1,23 @@
+Ansible In CI/CD 
+
+Requirements,
+Learn about the simple CI/CD job - https://www.youtube.com/watch?v=6-VPlwkMIKA
+Install ansible and configure with AWS - https://www.youtube.com/watch?v=79xFyOc_eEY&pbjreload=10
+
+
+In this ansible CI/CD task
+We need to learn how to enable the pswd less authentication b/w ansible and tomcat server
+install "publish over ssh" plugin in Jenkins
+write a playbook to copy the jar/war file on to the jenkins server
+Modify the Jenkins job to copy artifacts and initiate the ansible playbook.
+
+Sample playbook to move the artifact over from jenkins server to the tomcat server using ansible
+example ref link - https://www.youtube.com/watch?v=nE4b9mW2ym0
+--- 
+- hosts: [IP's list with grp var eg-web-servers- this has the list of IP's]
+  become: true
+  tasks:
+	- name: copy war onto tomcat server
+	  copy: 
+		src: path/to/the/war-file
+		dest: path/apache-tomcat/webapps
