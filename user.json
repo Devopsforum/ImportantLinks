@@ -1,0 +1,67 @@
+{
+  "Resources": {
+    "DevopsForumUser": {
+      "Type": "AWS::IAM::User"
+    },
+    "DevopsForumPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "Description" : "This policy allows DevopsForum to gather data on IAM users, running EC2 instances and Auto Scaling groups.",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetUserPolicy",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupsForUser",
+                "iam:ListGroupsForPolicies",
+                "iam:ListGroupPolicies",
+                "iam:GetUser",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "ec2:DescribeInstances",
+                "ec2:DescribeRegions",
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAutoScalingInstances"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Users": [{
+          "Ref": "DevopsForumUser"
+        }]
+      }
+    },
+    "DevopsForumUserKeys": {
+      "Type": "AWS::IAM::AccessKey",
+      "Properties": {
+        "UserName": {
+          "Ref": "DevopsForumUser"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "AccessKey": {
+      "Value": {
+        "Ref": "DevopsForumUserKeys"
+      },
+      "Description": "Access Key ID of DevopsForum User"
+    },
+    "SecretKey": {
+      "Value": {
+        "Fn::GetAtt": [
+          "DevopsForumUserKeys",
+          "SecretAccessKey"
+        ]
+      },
+      "Description": "Secret Key of DevopsForum User"
+    }
+  }
+}

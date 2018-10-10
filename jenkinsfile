@@ -1,0 +1,10 @@
+pipeline {
+  agent any 
+  stages {
+    stage('Stage env') {
+      steps {
+        git branch: 'stage', url: 'https://github.com/Devopsforum/Devops.git'
+      }
+    }
+  }
+}
